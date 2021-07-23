@@ -1,2 +1,2 @@
 # goway
-a way to go
+the way to go

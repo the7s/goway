@@ -1,8 +1,8 @@
 package main
 
-import "goway/goroutine"
+import "goway/game"
 
 func main() {
-	//gor.Channel1()
-	goroutine.UniDirectChannel()
+
+	game.Run()
 }
