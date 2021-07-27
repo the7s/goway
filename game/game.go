@@ -98,20 +98,16 @@ func getPlayer(w http.ResponseWriter, r *http.Request) {
 				n, err := resp.Body.Read(buf)
 				if err != nil && err != io.EOF {
 				} else {
-
 					res = string(buf[:n])
-
 					break
 				}
 			}
-
 			json.Unmarshal([]byte(res), &member)
 			result = append(result, member)
 		}(tag)
 	}
-	wg.Wait()
 
-	fmt.Println(len(result))
+	wg.Wait()
 	res, err := json.Marshal(result)
 	if err != nil {
 		fmt.Println(err)
