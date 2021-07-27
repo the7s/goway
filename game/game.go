@@ -11,7 +11,9 @@ import (
 
 var wg sync.WaitGroup
 
-var result Result
+//var result Result
+
+var result []Member
 
 func Run() {
 
@@ -70,7 +72,6 @@ func getPlayer(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(err)
 		return
 	}
-	fmt.Println(res)
 	w.Write(res)
 }
 
@@ -114,5 +115,7 @@ func RPlayerInfo(tag string) {
 	}
 
 	json.Unmarshal([]byte(res), &member)
-	result.data = append(result.data, member)
+
+	result = append(result, member)
+	fmt.Println(result)
 }

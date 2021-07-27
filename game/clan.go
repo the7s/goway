@@ -125,6 +125,6 @@ type Member struct {
 	WarStars             int64 `json:"warStars"`
 }
 
-type Result struct {
-	data []Member
-}
+//type Result struct {
+//	data []Member
+//}
