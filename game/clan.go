@@ -1,6 +1,9 @@
 package game
 
 type Clan struct {
+	//Tag                    string `json:"-"`   表明序列化和反序列化时忽略此字段
+	Tag       string `json:"tag"`
+	Type      string `json:"type"`
 	BadgeUrls struct {
 		Large  string `json:"large"`
 		Medium string `json:"medium"`
@@ -22,10 +25,9 @@ type Clan struct {
 	RequiredTownhallLevel  int64  `json:"requiredTownhallLevel"`
 	RequiredTrophies       int64  `json:"requiredTrophies"`
 	RequiredVersusTrophies int64  `json:"requiredVersusTrophies"`
-	Tag                    string `json:"tag"`
-	Type                   string `json:"type"`
-	WarFrequency           string `json:"warFrequency"`
-	WarLeague              struct {
+
+	WarFrequency string `json:"warFrequency"`
+	WarLeague    struct {
 		ID   int64  `json:"id"`
 		Name string `json:"name"`
 	} `json:"warLeague"`
@@ -124,7 +126,3 @@ type Member struct {
 	VersusTrophies       int64 `json:"versusTrophies"`
 	WarStars             int64 `json:"warStars"`
 }
-
-//type Result struct {
-//	data []Member
-//}

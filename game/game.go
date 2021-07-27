@@ -54,7 +54,16 @@ func ReqClansInfo() string {
 
 func getClans(w http.ResponseWriter, r *http.Request) {
 	clansInfo := ReqClansInfo()
-	w.Write([]byte(clansInfo))
+	var clan Clan
+	if err := json.Unmarshal([]byte(clansInfo), &clan); err != nil {
+		fmt.Println(err)
+	}
+	res, err := json.Marshal(&clan)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	w.Write(res)
 }
 
 func getPlayer(w http.ResponseWriter, r *http.Request) {
